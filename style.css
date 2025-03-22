@@ -8,6 +8,7 @@ body {
     height: 100svh;
     width: 100vw;
     overflow: none;
+    overscroll-behavior: none;
 }
 
 section#balk {
@@ -15,7 +16,41 @@ section#balk {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: end;
+}
+
+section#venster {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+
+    overflow-y: auto;
+    height: 89%;
+    width: 80%;
+    background-color: yellow;
+}
+
+section#balk div:first-of-type {
+    width: 70%;
+    height: 30px;
+
+    border: 1px solid black;
+
+    display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+section#balk div:last-of-type {
+    width: 10%;
+    height: 30px;
+
+    border: 1px solid black;
+    border-left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 section#tekening {
@@ -25,6 +60,7 @@ section#tekening {
     justify-content: center;
     align-items: center;
 }
+
 
 
 
