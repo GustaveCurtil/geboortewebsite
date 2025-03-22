@@ -6,9 +6,17 @@ html, * {
 }
 
 :root {
-    --ruimte-rand: 2rem;
-    --hoogte-balk: 4rem;
+    --ruimte-rand: 0.5rem;
+    --hoogte-balk: 2rem;
 }
+
+@media screen and (min-width: 600px) {
+    :root {
+        --ruimte-rand: 1rem;
+        --hoogte-balk: 3rem;
+    }
+}
+
 
 body {
     height: 100svh;
@@ -31,7 +39,7 @@ section#venster {
     display: none;
 
     overflow-y: auto;
-    height: 89%;
+    height: calc(100% - 2 * var(--ruimte-rand) - var(--hoogte-balk));
     width: calc(100% - 2 * var(--ruimte-rand));
     background-color: yellow;
 
