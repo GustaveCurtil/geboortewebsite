@@ -1,7 +1,7 @@
 html, * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing:border-box;
     overscroll-behavior: none;
 }
 
@@ -41,10 +41,11 @@ section#venster {
     overflow-y: auto;
     height: calc(100% - 2 * var(--ruimte-rand) - var(--hoogte-balk));
     width: calc(100% - 2 * var(--ruimte-rand));
-    background-color: yellow;
+    background-color: rgba(255, 232, 232, 0.9);
 
     border: 1px solid black;
     border-top: 0;
+    padding: var(--ruimte-rand);
 }
 
 section#balk div:first-of-type {
@@ -87,5 +88,5 @@ svg {
 
 g:hover .cls-1 {
     fill: rgb(236, 7, 7) !important;
-    transition: fill 0.3s;
+    /* transition: fill 0.3s; */
   }
