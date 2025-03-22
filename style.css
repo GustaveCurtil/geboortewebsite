@@ -24,10 +24,15 @@ section#venster {
     top: 10%;
     left: 10%;
 
+    display: none;
+
     overflow-y: auto;
     height: 89%;
     width: 80%;
     background-color: yellow;
+
+    border: 1px solid black;
+    border-top: 0;
 }
 
 section#balk div:first-of-type {
