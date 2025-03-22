@@ -10,3 +10,15 @@ openClose.addEventListener('click', () => {
         openClose.innerHTML = '<u>Open</u>'
     }
 });
+
+let elementen = document.querySelectorAll('g');
+
+elementen.forEach(element => {
+    element.addEventListener('click', () => {
+        const isActive = element.classList.contains('actief');
+        elementen.forEach(el => el.classList.remove('actief'));
+        if (!isActive) {
+            element.classList.add('actief');
+        }
+    });
+});
