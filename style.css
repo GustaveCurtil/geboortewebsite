@@ -1,0 +1,8 @@
+body {
+    height: 100svh;
+    width: 100vw;
+}
+
+svg {
+    height: 100%;
+}
