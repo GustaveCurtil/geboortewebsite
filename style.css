@@ -48,7 +48,7 @@ section#venster {
     padding: var(--ruimte-rand);
 }
 
-section#balk div:first-of-type {
+section#balk div#titel {
     width: 80%;
     height: 100%;
 
@@ -59,7 +59,7 @@ section#balk div:first-of-type {
     justify-content: center;
 }
 
-section#balk div:last-of-type {
+section#balk div#open-close {
     width: 20%;
     height: 100%;
 
@@ -79,11 +79,20 @@ section#tekening {
     align-items: center;
 }
 
+.welkom, .info, .fotos, .brieven {
+    display: none;
+}
+
+.welkom.actief, .info.actief, .fotos.actief, .brieven.actief {
+    display: block;
+}
+
+
 
 
 
 svg {
-    height: 90%;
+    height: 95%;
 }
 
 g.actief .cls-1 {
