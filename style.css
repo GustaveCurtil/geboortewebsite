@@ -99,3 +99,7 @@ g.actief .cls-1 {
     fill: rgb(236, 7, 7) !important;
     /* transition: fill 0.3s; */
   }
+
+#frame2, #frame3, #frame4 {
+    display: none;
+  }

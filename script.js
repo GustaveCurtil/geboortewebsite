@@ -70,3 +70,23 @@ elementen.forEach(element => {
         }
     });
 });
+let x = 3;
+let frames = document.querySelectorAll('#fotos g')
+setInterval(framez, 1000);
+
+function framez() {
+    console.log('hallo');
+    for (let i = 0; i < frames.length; i++) {
+        console.log(frames)
+        frames.forEach(fr => {
+            fr.style.display = 'none';  
+        });
+
+        frames[x].style.display = 'block';
+    }
+    if (x > 0) {
+        x = x - 1
+    } else {
+        x = 3;
+    }
+}
