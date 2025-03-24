@@ -11,7 +11,11 @@ openClose.addEventListener('click', () => {
     }
 });
 
-let elementen = document.querySelectorAll('g');
+let all = document.querySelectorAll('g.coating')
+let bottom = document.querySelector('g#bottom');
+let middle = document.querySelector('g#middle');
+let tops = document.querySelectorAll('g.top');
+let topcoatings = document.querySelectorAll('g.top g.coating');
 let titels = document.querySelectorAll('#titel div')
 let vensters = document.querySelectorAll('#venster div')
 let welkom = document.querySelectorAll('.welkom');
@@ -19,45 +23,12 @@ let infos = document.querySelectorAll('.info');
 let fotos = document.querySelectorAll('.fotos');
 let brieven = document.querySelectorAll('.brieven');
 
-elementen.forEach(element => {
-    element.addEventListener('click', () => {
-        const isActive = element.classList.contains('actief');
-        elementen.forEach(el => el.classList.remove('actief'));
-        if (!isActive) {
-            element.classList.add('actief');
-            if (element.id === 'bottom') {
-                console.log('yo')
-                titels.forEach(titel => {
-                    titel.classList.remove('actief')
-                });
-                vensters.forEach(venster => {
-                    venster.classList.remove('actief')
-                });
-                brieven.forEach(brief => {
-                    brief.classList.add('actief') 
-                });
-            } else if (element.id === 'middle') {
-                titels.forEach(titel => {
-                    titel.classList.remove('actief')
-                });
-                vensters.forEach(venster => {
-                    venster.classList.remove('actief')
-                });
-                fotos.forEach(foto => {
-                    foto.classList.add('actief') 
-                });
-            } else if (element.id === 'top') {
-                titels.forEach(titel => {
-                    titel.classList.remove('actief')
-                });
-                vensters.forEach(venster => {
-                    venster.classList.remove('actief')
-                });
-                infos.forEach(info => {
-                    info.classList.add('actief') 
-                });
-            }
-        } else if (isActive) {
+
+function joaat(ying, yang) {
+    ying.addEventListener('click', (e) => {
+        let coating = ying.querySelector('g.coating');
+        if (coating.classList.contains('hide')) {
+            coating.classList.remove('hide'); 
             titels.forEach(titel => {
                 titel.classList.remove('actief')
             });
@@ -67,9 +38,71 @@ elementen.forEach(element => {
             welkom.forEach(w => {
                 w.classList.add('actief') 
             });
+        } else {
+            all.forEach(al => {
+                al.classList.remove('hide');
+            });
+            coating.classList.add('hide');
+            titels.forEach(titel => {
+                titel.classList.remove('actief')
+            });
+            vensters.forEach(venster => {
+                venster.classList.remove('actief')
+            });
+            yang.forEach(y => {
+                y.classList.add('actief') 
+            });
         }
-    });
+    })
+}
+
+joaat(bottom, brieven)
+joaat(middle, fotos)
+
+tops.forEach(top => {
+
+    top.addEventListener('click', (e)=> {
+        let status
+        topcoatings.forEach(coating => {
+            if (coating.classList.contains('hide')) {
+                status = 'hidden';
+            } else {
+                status = 'seen'
+            }
+        });
+        if (status === 'hidden') {
+            topcoatings.forEach(coating => {
+                coating.classList.remove('hide');  
+            });
+            titels.forEach(titel => {
+                titel.classList.remove('actief')
+            });
+            vensters.forEach(venster => {
+                venster.classList.remove('actief')
+            });
+            welkom.forEach(w => {
+                w.classList.add('actief') 
+            });
+        } else {
+            all.forEach(al => {
+                al.classList.remove('hide');
+            });
+            topcoatings.forEach(coating => {
+                coating.classList.add('hide');  
+            });
+            titels.forEach(titel => {
+                titel.classList.remove('actief')
+            });
+            vensters.forEach(venster => {
+                venster.classList.remove('actief')
+            });
+            fotos.forEach(y => {
+                y.classList.add('actief') 
+            });
+        }
+    })
 });
+
 let x = 3;
 let frames = document.querySelectorAll('#fotos g')
 setInterval(framez, 1000);
