@@ -41,7 +41,7 @@ section#venster {
     overflow-y: auto;
     height: calc(100% - 2 * var(--ruimte-rand) - var(--hoogte-balk));
     width: calc(100% - 2 * var(--ruimte-rand));
-    background-color: rgba(255, 232, 232, 0.208);
+    background-color: rgba(255, 232, 232, 0.8);
 
     border: 1px solid black;
     border-top: 0;
