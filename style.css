@@ -117,6 +117,10 @@ g.hide {
     padding-bottom: 0;
 }
 
+#venster .fotos .polaroid:not(:last-of-type) {
+    margin-bottom: var(--ruimte-rand);
+}
+
 div.beeld {
     width: 100%;
     position: relative;
