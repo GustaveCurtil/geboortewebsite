@@ -66,24 +66,16 @@ section#venster {
     padding: var(--ruimte-rand);
 }
 
+#venster > div:not(#venster .actief) {
+    display: none;
+}
+
 .balk div, #venster div {
     display: none;
 }
 
 .balk div.actief, #venster div.actief{
     display: block;
-}
-
-.rood {
-    background-color: #ee7476;
-}
-
-.geel {
-    background-color: #fcc00a;
-}
-
-.blauw {
-    background-color: #b3cfee;
 }
 
 

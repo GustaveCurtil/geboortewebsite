@@ -316,12 +316,16 @@ middle.addEventListener('click', (e) => {
         });
 
         balken.forEach(balk => {
-            balk.classList.remove('blauw', 'rood', 'geel');
+            balk.style.backgroundColor = "";
         });
+        venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 
     } else {
         titels.forEach(titel => {
             titel.classList.remove('actief');
+        });
+        vensters.forEach(venster => {
+            venster.classList.remove('actief');
         });
         fotos.classList.add('actief');
         fotosVenster.classList.add('actief');
@@ -333,11 +337,12 @@ middle.addEventListener('click', (e) => {
         middleCoating.classList.add('hide');
 
         balken.forEach(balk => {
-            balk.classList.remove('blauw', 'rood', 'geel');
+            balk.style.backgroundColor = "";
         });
         balken.forEach(balk => {
-            balk.classList.add('geel');
+            balk.style.backgroundColor = "rgb(252, 192, 10)";
         });
+        venster.style.backgroundColor = "hsla(45, 97.60%, 95%, 90%)";
     }
 })
 
@@ -348,6 +353,9 @@ bottom.addEventListener('click', (e) => {
         brieven.classList.remove('actief');
         brievenVenster.classList.remove('actief');
         welkom.classList.add('actief');
+        vensters.forEach(venster => {
+            venster.classList.remove('actief');
+        });
         welkomVenster.classList.add('actief');
 
         coatings.forEach(coating => {
@@ -355,12 +363,16 @@ bottom.addEventListener('click', (e) => {
         });
 
         balken.forEach(balk => {
-            balk.classList.remove('blauw', 'rood', 'geel');
+            balk.style.backgroundColor = "";
         });
+        venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 
     } else {
         titels.forEach(titel => {
             titel.classList.remove('actief');
+        });
+        vensters.forEach(venster => {
+            venster.classList.remove('actief');
         });
         brieven.classList.add('actief');
         brievenVenster.classList.add('actief');
@@ -372,11 +384,12 @@ bottom.addEventListener('click', (e) => {
         bottomCoating.classList.add('hide');
 
         balken.forEach(balk => {
-            balk.classList.remove('blauw', 'rood', 'geel');
+            balk.style.backgroundColor = "";
         });
         balken.forEach(balk => {
-            balk.classList.add('rood');
+            balk.style.backgroundColor = "rgb(238, 116, 118)";
         });
+        venster.style.backgroundColor = "hsl(359, 78.20%, 95%, 90%)";
     }
 })
 
@@ -386,6 +399,9 @@ upperInfo.addEventListener('click', (e) => {
 
         infos.classList.remove('actief');
         infosVenster.classList.remove('actief');
+        vensters.forEach(venster => {
+            venster.classList.remove('actief');
+        });
         welkom.classList.add('actief');
         welkomVenster.classList.add('actief');
 
@@ -394,12 +410,16 @@ upperInfo.addEventListener('click', (e) => {
         });
 
         balken.forEach(balk => {
-            balk.classList.remove('blauw', 'rood', 'geel');
+            balk.style.backgroundColor = "";
         });
+        venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 
     } else {
         titels.forEach(titel => {
             titel.classList.remove('actief');
+        });
+        vensters.forEach(venster => {
+            venster.classList.remove('actief');
         });
         infos.classList.add('actief');
         infosVenster.classList.add('actief');
@@ -412,11 +432,12 @@ upperInfo.addEventListener('click', (e) => {
         upperCoating.classList.add('hide');
 
         balken.forEach(balk => {
-            balk.classList.remove('blauw', 'rood', 'geel');
+            balk.style.backgroundColor = "";
         });
         balken.forEach(balk => {
-            balk.classList.add('blauw');
+            balk.style.backgroundColor = "rgb(179, 207, 238)";
         });
+        venster.style.backgroundColor = "hsla(212, 63.40%, 95%, 90%)";
     }
 })
 
@@ -426,6 +447,9 @@ upper.addEventListener('click', (e) => {
 
         infos.classList.remove('actief');
         infosVenster.classList.remove('actief');
+        vensters.forEach(venster => {
+            venster.classList.remove('actief');
+        });
         welkom.classList.add('actief');
         welkomVenster.classList.add('actief');
 
@@ -434,12 +458,16 @@ upper.addEventListener('click', (e) => {
         });
 
         balken.forEach(balk => {
-            balk.classList.remove('blauw', 'rood', 'geel');
+            balk.style.backgroundColor = "";
         });
+        venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 
     } else {
         titels.forEach(titel => {
             titel.classList.remove('actief');
+        });
+        vensters.forEach(venster => {
+            venster.classList.remove('actief');
         });
         infos.classList.add('actief');
         infosVenster.classList.add('actief');
@@ -452,10 +480,61 @@ upper.addEventListener('click', (e) => {
         upperCoating.classList.add('hide');
 
         balken.forEach(balk => {
-            balk.classList.remove('blauw', 'rood', 'geel');
+            balk.style.backgroundColor = "";
         });
         balken.forEach(balk => {
-            balk.classList.add('blauw');
+            balk.style.backgroundColor = "rgb(179, 207, 238)";
         });
+        venster.style.backgroundColor = "hsl(212, 63.40%, 95%, 90%)";
     }
+})
+
+let booty = document.querySelector('svg');
+
+booty.addEventListener('click', (e) => {
+
+    if (e.target !== booty) return;
+
+    titels.forEach(venster => {
+        venster.classList.remove('actief');
+    });
+    vensters.forEach(venster => {
+        venster.classList.remove('actief');
+    });
+    welkom.classList.add('actief');
+    welkomVenster.classList.add('actief');
+
+    coatings.forEach(coating => {
+        coating.classList.add('hide');
+    });
+
+    balken.forEach(balk => {
+        balk.style.backgroundColor = "";
+    });
+    venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
+})
+
+let bootah = document.querySelector('#tekening');
+
+bootah.addEventListener('click', (e) => {
+
+    if (e.target !== bootah) return;
+
+    titels.forEach(venster => {
+        venster.classList.remove('actief');
+    });
+    vensters.forEach(venster => {
+        venster.classList.remove('actief');
+    });
+    welkom.classList.add('actief');
+    welkomVenster.classList.add('actief');
+
+    coatings.forEach(coating => {
+        coating.classList.add('hide');
+    });
+
+    balken.forEach(balk => {
+        balk.style.backgroundColor = "";
+    });
+    venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 })
