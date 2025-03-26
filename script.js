@@ -1,7 +1,18 @@
 let openClose = document.querySelector('#open-close');
+let balk = document.querySelector('.balk');
 let venster = document.querySelector('#venster');
 
 openClose.addEventListener('click', () => {
+    if (venster.style.display === 'none' || venster.style.display === '') {
+        venster.style.display = 'block';
+        openClose.innerHTML = '<u>CLOSE</u>'
+    } else {
+        venster.style.display = 'none';
+        openClose.innerHTML = '<u>OPEN</u>'
+    }
+});
+
+balk.addEventListener('click', () => {
     if (venster.style.display === 'none' || venster.style.display === '') {
         venster.style.display = 'block';
         openClose.innerHTML = '<u>CLOSE</u>'
@@ -286,8 +297,6 @@ let upperCoating = document.querySelector('#top_coating');
 let middleCoating = document.querySelector('#middle_coating');
 let bottomCoating = document.querySelector('#bottom_coating');
 
-let balken = document.querySelectorAll('.balk');
-
 let titels = document.querySelectorAll('.balk>div')
 let welkom = document.querySelector('.balk .welkom');
 let infos = document.querySelector('.balk .info');
@@ -315,9 +324,7 @@ middle.addEventListener('click', (e) => {
             coating.classList.add('hide');
         });
 
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "";
-        });
+        balk.style.backgroundColor = "";
         venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 
     } else {
@@ -336,12 +343,10 @@ middle.addEventListener('click', (e) => {
 
         middleCoating.classList.add('hide');
 
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "";
-        });
-        balken.forEach(balk => {
+
+        balk.style.backgroundColor = "";
+
             balk.style.backgroundColor = "rgb(252, 192, 10)";
-        });
         venster.style.backgroundColor = "hsla(45, 97.60%, 95%, 90%)";
     }
 })
@@ -362,9 +367,7 @@ bottom.addEventListener('click', (e) => {
             coating.classList.add('hide');
         });
 
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "";
-        });
+        balk.style.backgroundColor = "";
         venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 
     } else {
@@ -383,12 +386,8 @@ bottom.addEventListener('click', (e) => {
 
         bottomCoating.classList.add('hide');
 
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "";
-        });
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "rgb(238, 116, 118)";
-        });
+        balk.style.backgroundColor = "";
+        balk.style.backgroundColor = "rgb(238, 116, 118)";
         venster.style.backgroundColor = "hsl(359, 78.20%, 95%, 90%)";
     }
 })
@@ -409,9 +408,7 @@ upperInfo.addEventListener('click', (e) => {
             coating.classList.add('hide');
         });
 
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "";
-        });
+        balk.style.backgroundColor = "";
         venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 
     } else {
@@ -431,12 +428,8 @@ upperInfo.addEventListener('click', (e) => {
         upperInfoCoating.classList.add('hide');
         upperCoating.classList.add('hide');
 
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "";
-        });
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "rgb(179, 207, 238)";
-        });
+        balk.style.backgroundColor = "";
+        balk.style.backgroundColor = "rgb(179, 207, 238)";
         venster.style.backgroundColor = "hsla(212, 63.40%, 95%, 90%)";
     }
 })
@@ -457,9 +450,7 @@ upper.addEventListener('click', (e) => {
             coating.classList.add('hide');
         });
 
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "";
-        });
+        balk.style.backgroundColor = "";
         venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 
     } else {
@@ -479,12 +470,7 @@ upper.addEventListener('click', (e) => {
         upperInfoCoating.classList.add('hide');
         upperCoating.classList.add('hide');
 
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "";
-        });
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "rgb(179, 207, 238)";
-        });
+        balk.style.backgroundColor = "rgb(179, 207, 238)";
         venster.style.backgroundColor = "hsl(212, 63.40%, 95%, 90%)";
     }
 })
@@ -508,9 +494,7 @@ booty.addEventListener('click', (e) => {
         coating.classList.add('hide');
     });
 
-    balken.forEach(balk => {
-        balk.style.backgroundColor = "";
-    });
+    balk.style.backgroundColor = "";
     venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 })
 
@@ -533,8 +517,6 @@ bootah.addEventListener('click', (e) => {
         coating.classList.add('hide');
     });
 
-    balken.forEach(balk => {
-        balk.style.backgroundColor = "";
-    });
+    balk.style.backgroundColor = "";
     venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
 })
