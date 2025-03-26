@@ -3,17 +3,20 @@ let balken = document.querySelectorAll('.balk');
 let venster = document.querySelector('#venster');
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    balken.forEach(balk => {
+        balk.addEventListener('click', () => {
+            let computedDisplay = window.getComputedStyle(venster).display; // Get computed style
 
-balken.forEach(balk => {
-    balk.addEventListener('click', () => {
-        if (venster.style.display === 'none' || venster.style.display === '') {
-            venster.style.display = 'block';
-            openClose.innerHTML = '<u>CLOSE</u>'
-        } else {
-            venster.style.display = 'none';
-            openClose.innerHTML = '<u>OPEN</u>'
-        }
-    }); 
+            if (computedDisplay === 'none') {
+                venster.style.display = 'block';
+                openClose.innerHTML = '<u>CLOSE</u>';
+            } else {
+                venster.style.display = 'none';
+                openClose.innerHTML = '<u>OPEN</u>';
+            }
+        }); 
+    });
 });
 
 
