@@ -104,7 +104,7 @@
 // });
 
 
-let snelheid = 1;
+let snelheid = 0.5;
 
 let scenesBrieven = document.querySelectorAll('g#bottom>g');
 let x = scenesBrieven.length - 1; // start from the last scene
@@ -172,12 +172,12 @@ scenesVlag.forEach(scene => {
 scenesVlag[s].style.display = 'block';
 
 
-setInterval(loopBrieven, 1200 / snelheid);
-setInterval(loopFotos, 1200 / snelheid);
+setInterval(loopBrieven, 800 / snelheid);
+setInterval(loopFotos, 800 / snelheid);
 setInterval(loopVlaggen, 200 / snelheid);
 setTimeout(function (){
     setInterval(loopDraaien, 800 / snelheid)
-}, 400 / snelheid);
+}, 0 / snelheid);
 
 function loopBrieven() {
     // Hide all scenes
@@ -274,3 +274,141 @@ function loopVlaggen() {
         s = scenesVlaggen.length - 1;
     }
 }
+
+let upperInfo = document.querySelector('#top_info');
+let upper = document.querySelector('#top');
+let middle = document.querySelector('#middle');
+let bottom = document.querySelector('#bottom');
+
+let coatings = document.querySelectorAll('svg>g:nth-child(even)');
+let upperInfoCoating = document.querySelector('#top_info_coating');
+let upperCoating = document.querySelector('#top_coating');
+let middleCoating = document.querySelector('#middle_coating');
+let bottomCoating = document.querySelector('#bottom_coating');
+
+let titels = document.querySelectorAll('#titel>div')
+let welkom = document.querySelector('#titel .welkom');
+let infos = document.querySelector('#titel .info');
+let fotos = document.querySelector('#titel .fotos');
+let brieven = document.querySelector('#titel .brieven');
+
+let welkomVenster = document.querySelector('#venster .welkom');
+let infosVenster = document.querySelector('#venster .info');
+let fotosVenster = document.querySelector('#venster .fotos');
+let brievenVenster = document.querySelector('#venster .brieven');
+
+let status = 'welkom'
+
+middle.addEventListener('click', (e) => {
+
+    if (fotos.classList.contains('actief')) {
+
+        fotos.classList.remove('actief');
+        fotosVenster.classList.remove('actief');
+        welkom.classList.add('actief');
+        welkomVenster.classList.add('actief');
+
+        coatings.forEach(coating => {
+            coating.classList.add('hide');
+        });
+
+    } else {
+        titels.forEach(titel => {
+            titel.classList.remove('actief');
+        });
+        fotos.classList.add('actief');
+        fotosVenster.classList.add('actief');
+
+        coatings.forEach(coating => {
+            coating.classList.remove('hide');
+        });
+
+        middleCoating.classList.add('hide');
+    }
+})
+
+bottom.addEventListener('click', (e) => {
+
+    if (brieven.classList.contains('actief')) {
+
+        brieven.classList.remove('actief');
+        brievenVenster.classList.remove('actief');
+        welkom.classList.add('actief');
+        welkomVenster.classList.add('actief');
+
+        coatings.forEach(coating => {
+            coating.classList.add('hide');
+        });
+
+    } else {
+        titels.forEach(titel => {
+            titel.classList.remove('actief');
+        });
+        brieven.classList.add('actief');
+        brievenVenster.classList.add('actief');
+
+        coatings.forEach(coating => {
+            coating.classList.remove('hide');
+        });
+
+        bottomCoating.classList.add('hide');
+    }
+})
+
+upperInfo.addEventListener('click', (e) => {
+
+    if (infos.classList.contains('actief')) {
+
+        infos.classList.remove('actief');
+        infosVenster.classList.remove('actief');
+        welkom.classList.add('actief');
+        welkomVenster.classList.add('actief');
+
+        coatings.forEach(coating => {
+            coating.classList.add('hide');
+        });
+
+    } else {
+        titels.forEach(titel => {
+            titel.classList.remove('actief');
+        });
+        infos.classList.add('actief');
+        infosVenster.classList.add('actief');
+
+        coatings.forEach(coating => {
+            coating.classList.remove('hide');
+        });
+
+        upperInfoCoating.classList.add('hide');
+        upperCoating.classList.add('hide');
+    }
+})
+
+upper.addEventListener('click', (e) => {
+
+    if (infos.classList.contains('actief')) {
+
+        infos.classList.remove('actief');
+        infosVenster.classList.remove('actief');
+        welkom.classList.add('actief');
+        welkomVenster.classList.add('actief');
+
+        coatings.forEach(coating => {
+            coating.classList.add('hide');
+        });
+
+    } else {
+        titels.forEach(titel => {
+            titel.classList.remove('actief');
+        });
+        infos.classList.add('actief');
+        infosVenster.classList.add('actief');
+
+        coatings.forEach(coating => {
+            coating.classList.remove('hide');
+        });
+
+        upperInfoCoating.classList.add('hide');
+        upperCoating.classList.add('hide');
+    }
+})
