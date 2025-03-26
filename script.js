@@ -2,6 +2,8 @@ let openClose = document.querySelector('#open-close');
 let balken = document.querySelectorAll('.balk');
 let venster = document.querySelector('#venster');
 
+
+
 balken.forEach(balk => {
     balk.addEventListener('click', () => {
         if (venster.style.display === 'none' || venster.style.display === '') {
