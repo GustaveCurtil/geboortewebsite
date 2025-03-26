@@ -104,25 +104,42 @@ g.hide {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 #venster .fotos .polaroid {
-    width: 50%;
+    width: 100%;
+    aspect-ratio: 4/4;
     background-color: whitesmoke;
 
     border: 1px solid black;
-    padding: var(--ruimte-rand);
+    padding: 3%;
+    padding-bottom: 0;
 }
 
-.beeld {
-    height: 200px;
-    aspect-ratio: 3/4;
+div.beeld {
+    width: 100%;
+    position: relative;
+    aspect-ratio: 5/4;
     overflow: hidden;
     border: 1px solid black;
 }
 
-img {
+.tekst {
     width: 100%;
-    height: 100%; /* Keep natural proportions */
-    object-fit: cover;
+    height: calc(100% - 96% * 4 / 5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.beeld img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop image properly */
+}
+
+.polaroid p {
+    font-size: 1em;
 }
