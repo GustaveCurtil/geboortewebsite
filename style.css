@@ -100,11 +100,13 @@ g.hide {
     display: none;
 }
 
-#venster .fotos {
+#venster .fotos.actief {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
+    gap: var(--ruimte-rand);
 }
 
 #venster .fotos .polaroid {
@@ -113,8 +115,12 @@ g.hide {
     background-color: whitesmoke;
 
     border: 1px solid black;
-    padding: 3%;
-    padding-bottom: 0;
+}
+
+@media screen and (min-width: 500px) {
+    #venster .fotos .polaroid {
+        width: calc(0.5 * (25% - var(--ruimte-rand)));
+    }
 }
 
 #venster .fotos .polaroid:not(:last-of-type) {
@@ -122,7 +128,9 @@ g.hide {
 }
 
 div.beeld {
-    width: 100%;
+    width: calc(100% - 2 * var(--ruimte-rand));
+    margin: var(--ruimte-rand);
+    margin-bottom: 0;
     position: relative;
     aspect-ratio: 5/4;
     overflow: hidden;
@@ -131,7 +139,7 @@ div.beeld {
 
 .tekst {
     width: 100%;
-    height: calc(100% - 96% * 4 / 5);
+    height: calc(20% + (3/5) * var(--ruimte-rand));
 
     display: flex;
     justify-content: center;
