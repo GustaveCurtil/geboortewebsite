@@ -3,7 +3,10 @@ html, * {
     margin: 0;
     box-sizing:border-box;
     overscroll-behavior: none;
+    
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 
 :root {
     --ruimte-rand: 0.5rem;
@@ -34,7 +37,18 @@ section.balk {
     justify-content: center;
 
     border: 1px solid black;
+
+    font-weight: bold;
 }
+
+section.balk:first-of-type {
+    border-radius: 100px 100px 0 0;
+}
+
+section.balk:last-of-type {
+    border-radius: 0 0 100px 100px;
+}
+
 
 section#venster {
     position: absolute;
@@ -52,12 +66,24 @@ section#venster {
     padding: var(--ruimte-rand);
 }
 
-#titel div, #venster div {
+.balk div, #venster div {
     display: none;
 }
 
-#titel div.actief, #venster div.actief{
+.balk div.actief, #venster div.actief{
     display: block;
+}
+
+.rood {
+    background-color: #ee7476;
+}
+
+.geel {
+    background-color: #fcc00a;
+}
+
+.blauw {
+    background-color: #b3cfee;
 }
 
 

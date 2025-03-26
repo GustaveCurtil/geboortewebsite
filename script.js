@@ -1,22 +1,22 @@
-// let openClose = document.querySelector('#open-close');
-// let venster = document.querySelector('#venster');
+let openClose = document.querySelector('#open-close');
+let venster = document.querySelector('#venster');
 
-// openClose.addEventListener('click', () => {
-//     if (venster.style.display === 'none' || venster.style.display === '') {
-//         venster.style.display = 'block';
-//         openClose.innerHTML = '<u>Close</u>'
-//     } else {
-//         venster.style.display = 'none';
-//         openClose.innerHTML = '<u>Open</u>'
-//     }
-// });
+openClose.addEventListener('click', () => {
+    if (venster.style.display === 'none' || venster.style.display === '') {
+        venster.style.display = 'block';
+        openClose.innerHTML = '<u>CLOSE</u>'
+    } else {
+        venster.style.display = 'none';
+        openClose.innerHTML = '<u>OPEN</u>'
+    }
+});
 
 // let all = document.querySelectorAll('g.coating')
 // let bottom = document.querySelector('g#bottom');
 // let middle = document.querySelector('g#middle');
 // let tops = document.querySelectorAll('g.top');
 // let topcoatings = document.querySelectorAll('g.top g.coating');
-// let titels = document.querySelectorAll('#titel div')
+// let titels = document.querySelectorAll('.balk div')
 // let vensters = document.querySelectorAll('#venster div')
 // let welkom = document.querySelectorAll('.welkom');
 // let infos = document.querySelectorAll('.info');
@@ -286,12 +286,15 @@ let upperCoating = document.querySelector('#top_coating');
 let middleCoating = document.querySelector('#middle_coating');
 let bottomCoating = document.querySelector('#bottom_coating');
 
-let titels = document.querySelectorAll('#titel>div')
-let welkom = document.querySelector('#titel .welkom');
-let infos = document.querySelector('#titel .info');
-let fotos = document.querySelector('#titel .fotos');
-let brieven = document.querySelector('#titel .brieven');
+let balken = document.querySelectorAll('.balk');
 
+let titels = document.querySelectorAll('.balk>div')
+let welkom = document.querySelector('.balk .welkom');
+let infos = document.querySelector('.balk .info');
+let fotos = document.querySelector('.balk .fotos');
+let brieven = document.querySelector('.balk .brieven');
+
+let vensters = document.querySelectorAll('#venster div');
 let welkomVenster = document.querySelector('#venster .welkom');
 let infosVenster = document.querySelector('#venster .info');
 let fotosVenster = document.querySelector('#venster .fotos');
@@ -312,6 +315,10 @@ middle.addEventListener('click', (e) => {
             coating.classList.add('hide');
         });
 
+        balken.forEach(balk => {
+            balk.classList.remove('blauw', 'rood', 'geel');
+        });
+
     } else {
         titels.forEach(titel => {
             titel.classList.remove('actief');
@@ -324,6 +331,13 @@ middle.addEventListener('click', (e) => {
         });
 
         middleCoating.classList.add('hide');
+
+        balken.forEach(balk => {
+            balk.classList.remove('blauw', 'rood', 'geel');
+        });
+        balken.forEach(balk => {
+            balk.classList.add('geel');
+        });
     }
 })
 
@@ -340,6 +354,10 @@ bottom.addEventListener('click', (e) => {
             coating.classList.add('hide');
         });
 
+        balken.forEach(balk => {
+            balk.classList.remove('blauw', 'rood', 'geel');
+        });
+
     } else {
         titels.forEach(titel => {
             titel.classList.remove('actief');
@@ -352,6 +370,13 @@ bottom.addEventListener('click', (e) => {
         });
 
         bottomCoating.classList.add('hide');
+
+        balken.forEach(balk => {
+            balk.classList.remove('blauw', 'rood', 'geel');
+        });
+        balken.forEach(balk => {
+            balk.classList.add('rood');
+        });
     }
 })
 
@@ -368,6 +393,10 @@ upperInfo.addEventListener('click', (e) => {
             coating.classList.add('hide');
         });
 
+        balken.forEach(balk => {
+            balk.classList.remove('blauw', 'rood', 'geel');
+        });
+
     } else {
         titels.forEach(titel => {
             titel.classList.remove('actief');
@@ -381,6 +410,13 @@ upperInfo.addEventListener('click', (e) => {
 
         upperInfoCoating.classList.add('hide');
         upperCoating.classList.add('hide');
+
+        balken.forEach(balk => {
+            balk.classList.remove('blauw', 'rood', 'geel');
+        });
+        balken.forEach(balk => {
+            balk.classList.add('blauw');
+        });
     }
 })
 
@@ -397,6 +433,10 @@ upper.addEventListener('click', (e) => {
             coating.classList.add('hide');
         });
 
+        balken.forEach(balk => {
+            balk.classList.remove('blauw', 'rood', 'geel');
+        });
+
     } else {
         titels.forEach(titel => {
             titel.classList.remove('actief');
@@ -410,5 +450,12 @@ upper.addEventListener('click', (e) => {
 
         upperInfoCoating.classList.add('hide');
         upperCoating.classList.add('hide');
+
+        balken.forEach(balk => {
+            balk.classList.remove('blauw', 'rood', 'geel');
+        });
+        balken.forEach(balk => {
+            balk.classList.add('blauw');
+        });
     }
 })
