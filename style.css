@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 html, * {
     padding: 0;
     margin: 0;
@@ -58,7 +60,7 @@ section#venster {
     overflow-y: auto;
     height: calc(100% - 2 * var(--ruimte-rand) - 2 * var(--hoogte-balk));
     width: calc(100% - 2 * var(--ruimte-rand));
-    background-color: rgba(255, 232, 232, 0.90);
+    background-color: rgba(255, 255, 255, 0.9);
 
     border: 1px solid black;
     border-top: 0;
@@ -164,32 +166,51 @@ div.beeld img {
 
 #venster .brieven .kaartje {
     width: 100%;
-    aspect-ratio: 2/1;
     background-color: whitesmoke;
 
-    border: 1px solid black;
+    position: relative;
+
+    border: 1px solid rgb(56, 54, 54);
     padding: var(--ruimte-rand);
+
+    background-image: url(media/papier.jpg);
 }
 
 @media screen and (min-width: 500px) {
     #venster .brieven .kaartje {
-        width: calc(0.5 * (100% - var(--ruimte-rand)));
+        width: calc((100% - 2 * var(--ruimte-rand))/3);
+        aspect-ratio: 3/2;
+        overflow-y: auto;
     }
+}
+
+.kaartje img {
+    position: absolute;
+    top: var(--ruimte-rand);
+    right: var(--ruimte-rand);
+
+    width: 15%;
 }
 
 .kaartje p {
     width: 100%;
     margin-bottom: var(--ruimte-rand);
+    line-height: 1.4rem;
+    color: rgb(0, 0, 0);
 }
+
+
 
 .stippelijn {
     display: inline-block;
     width: 100%;
-    flex-grow: 1;
-    min-width: 30px;
-    height: 1em;
-    border-bottom: 1px dotted black;
-    padding-bottom: var(--ruimte-rand);
+}
+
+.invullen {
+    font-family: "Indie Flower", cursive;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: rgb(22, 0, 88);
 }
 
 .lijntje>*:last-of-type {
