@@ -183,11 +183,13 @@ div.beeld img {
 }
 
 .stippelijn {
-    margin: 0 10px;
+    display: inline-block;
+    width: 100%;
     flex-grow: 1;
     min-width: 30px;
     height: 1em;
     border-bottom: 1px dotted black;
+    padding-bottom: var(--ruimte-rand);
 }
 
 .lijntje>*:last-of-type {
