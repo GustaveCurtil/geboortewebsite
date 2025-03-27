@@ -16,7 +16,7 @@ html, * {
 @media screen and (min-width: 600px) {
     :root {
         --ruimte-rand: 1rem;
-        --hoogte-balk: 3rem;
+        --hoogte-balk: 3svh;
     }
 }
 
@@ -123,9 +123,6 @@ g.hide {
     }
 }
 
-#venster .fotos .polaroid:not(:last-of-type) {
-    margin-bottom: var(--ruimte-rand);
-}
 
 div.beeld {
     width: calc(100% - 2 * var(--ruimte-rand));
@@ -154,4 +151,62 @@ div.beeld img {
 
 .polaroid p {
     font-size: 1em;
+}
+
+#venster .fotos.actief {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--ruimte-rand);
+}
+
+#venster .brieven .kaartje {
+    width: 100%;
+    aspect-ratio: 2/1;
+    background-color: whitesmoke;
+
+    border: 1px solid black;
+    padding: var(--ruimte-rand);
+}
+
+@media screen and (min-width: 500px) {
+    #venster .brieven .kaartje {
+        width: calc(0.5 * (100% - var(--ruimte-rand)));
+    }
+}
+
+.lijntje {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: ;
+}
+
+.lijntje:not(:last-of-type) {
+    margin-bottom: var(--ruimte-rand);
+}
+
+.stippelijn {
+    margin: 0 10px;
+    flex-grow: 1;
+    min-width: 30px;
+    height: 1em;
+    border-bottom: 1px dotted black;
+}
+
+.lijntje>*:last-of-type {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 500px) {
+    .lijntje>*:first-of-type {
+        width: 100%;
+    }
+    
+    .stippelijn {
+        margin-left: 0;
+    }   
 }
