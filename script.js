@@ -353,6 +353,9 @@ middle.addEventListener('click', (e) => {
             balk.style.backgroundColor = "rgb(252, 192, 10)"; 
         });
         venster.style.backgroundColor = "hsla(45, 97.60%, 95%, 90%)";
+
+        venster.style.display = 'block';
+        openClose.innerHTML = '<u>CLOSE</u>';
     }
 })
 
@@ -401,6 +404,9 @@ bottom.addEventListener('click', (e) => {
         });
     
         venster.style.backgroundColor = "hsl(359, 78.20%, 95%, 90%)";
+
+        venster.style.display = 'block';
+        openClose.innerHTML = '<u>CLOSE</u>';
     }
 })
 
@@ -449,6 +455,9 @@ upperInfo.addEventListener('click', (e) => {
             balk.style.backgroundColor = "rgb(179, 207, 238)";
         });});
         venster.style.backgroundColor = "hsla(212, 63.40%, 95%, 90%)";
+
+        venster.style.display = 'block';
+        openClose.innerHTML = '<u>CLOSE</u>';
     }
 })
 
@@ -494,6 +503,9 @@ upper.addEventListener('click', (e) => {
             balk.style.backgroundColor = "rgb(179, 207, 238)"; 
         });
         venster.style.backgroundColor = "hsl(212, 63.40%, 95%, 90%)";
+
+        venster.style.display = 'block';
+        openClose.innerHTML = '<u>CLOSE</u>';
     }
 })
 

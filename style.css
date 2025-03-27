@@ -112,17 +112,24 @@ g.hide {
 }
 
 #venster .fotos .polaroid {
-    width: 100%;
+    width: calc((100% - 1 * var(--ruimte-rand))/2);
     aspect-ratio: 4/4;
     background-color: whitesmoke;
+    font-size: 0.7rem;
 
     border: 1px solid black;
 }
 
 @media screen and (min-width: 500px) {
     #venster .fotos .polaroid {
-        width: calc(0.5 * (25% - var(--ruimte-rand)));
+        width: calc((100% - 4 * var(--ruimte-rand))/5);
+        font-size: 1.2rem;
     }
+}
+
+#venster .fotos .polaroid p {
+    font-family: "Indie Flower", cursive;
+    font-weight: 600;
 }
 
 
@@ -181,6 +188,9 @@ div.beeld img {
         width: calc((100% - 2 * var(--ruimte-rand))/3);
         aspect-ratio: 3/2;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
@@ -188,28 +198,26 @@ div.beeld img {
     position: absolute;
     top: var(--ruimte-rand);
     right: var(--ruimte-rand);
-
-    width: 15%;
+    width: 12%;
 }
 
 .kaartje p {
     width: 100%;
-    margin-bottom: var(--ruimte-rand);
     line-height: 1.4rem;
     color: rgb(0, 0, 0);
+    margin-bottom: calc(1*var(--ruimte-rand));
+    font-size: 0.85rem;
 }
 
-
-
-.stippelijn {
-    display: inline-block;
-    width: 100%;
+.kaartje p:first-of-type {
+    margin-bottom: calc(2*var(--ruimte-rand));
 }
+
 
 .invullen {
     font-family: "Indie Flower", cursive;
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: rgb(22, 0, 88);
 }
 
@@ -217,3 +225,28 @@ div.beeld img {
     margin-right: 0;
 }
 
+@media (min-width: 600px) {
+    .kaartje p {
+        font-size: 1rem;
+    }
+
+    .invullen {
+        font-size: 1.4rem;
+    }
+}
+
+.blauw .invullen {
+    color: rgb(22, 0, 88);
+}
+
+.groen .invullen{
+    color: rgb(8, 110, 8);
+}
+
+.oranje .invullen{
+    color: rgb(189, 158, 0);
+}
+
+.rood .invullen{
+    color: rgb(225, 4, 4);
+}
