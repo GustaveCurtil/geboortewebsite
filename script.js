@@ -237,6 +237,7 @@ upperInfo.addEventListener('click', (e) => {
         menu(true);
     } else {
         statusMenu = 'info';
+        statusVenster = 'open'
         menu();
     }
 })
@@ -247,6 +248,7 @@ upper.addEventListener('click', (e) => {
         menu(true);
     } else {
         statusMenu = 'info';
+        statusVenster = 'open'
         menu()
     }
 })
@@ -257,6 +259,7 @@ middle.addEventListener('click', (e) => {
         menu(true);
     } else {
         statusMenu = 'polaroid'
+                statusVenster = 'open'
         menu();
     }
 })
@@ -267,6 +270,7 @@ bottom.addEventListener('click', (e) => {
         menu(true);
     } else {
         statusMenu = 'post';
+        statusVenster = 'open'
         menu();
     }
 })
@@ -324,12 +328,10 @@ function menu(neutroaal) {
     } 
 
     if (!neutroaal) {
-        if (statusVenster === 'none') {
-            statusVenster = 'none' 
+        if (statusVenster === 'none') { 
             venster.style.display = 'none';
             openClose.innerHTML = '<u>OPEN</u>';
-        } else {
-            statusVenster = 'open' 
+        } else { 
             venster.style.display = 'block';
             openClose.innerHTML = '<u>CLOSE</u>';
         }

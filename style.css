@@ -115,7 +115,7 @@ g.hide {
     width: calc((100% - 1 * var(--ruimte-rand))/2);
     aspect-ratio: 4/5;
     background-color: whitesmoke;
-    font-size: 0.7rem;
+    font-size: 1rem;
 
     border: 1px solid black;
 }
@@ -127,7 +127,7 @@ g.hide {
     }
 }
 
-#venster .fotos .polaroid p {
+#venster .fotos .polaroid * {
     font-family: "Indie Flower", cursive;
     font-weight: 600;
 }
@@ -145,11 +145,20 @@ div.beeld {
 
 .tekst {
     width: 100%;
-    height: calc(20% + (3/5) * var(--ruimte-rand));
+    height: calc((25/16) * 20% - (0/5) * var(--ruimte-rand));
+    padding: var(--ruimte-rand);
+    padding-bottom: 0;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
+}
+
+.datum {
+    text-align: center;
+    font-size: 0.7rem;
 }
 
 div.beeld img {
