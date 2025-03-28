@@ -6,7 +6,7 @@ html, * {
     box-sizing: border-box;
     overscroll-behavior: none;
 
-    overflow: none;
+    overflow: hidden;
     
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -265,4 +265,17 @@ div.beeld img {
 
 .rood .invullen{
     color: rgb(225, 4, 4);
+}
+
+#venster .welkom.actief, #venster .info.actief {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%
+}
+
+#venster .welkom p, #venster .info p {
+    text-align: center;
 }
