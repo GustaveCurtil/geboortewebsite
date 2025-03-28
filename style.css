@@ -219,7 +219,7 @@ div.beeld img {
     position: absolute;
     top: var(--ruimte-rand);
     right: var(--ruimte-rand);
-    width: 12%;
+    width: 14%;
 }
 
 .kaartje p {
