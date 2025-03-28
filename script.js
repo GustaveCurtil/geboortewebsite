@@ -1,117 +1,40 @@
 let openClose = document.querySelector('#open-close');
 let balken = document.querySelectorAll('.balk');
 let venster = document.querySelector('#venster');
+let statusVenster = window.getComputedStyle(venster).display;
+let statusMenu
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem("statusmenu")) {
+        statusMenu = sessionStorage.getItem("statusmenu")
+    } else {
+        statusMenu = 'welkom'
+    }
+    console.log(sessionStorage.getItem("statusvenster"))
+    if (sessionStorage.getItem("statusvenster")) {
+        statusVenster = sessionStorage.getItem("statusvenster");
+    }
+    console.log(statusVenster)
+    menu();
+
     balken.forEach(balk => {
         balk.addEventListener('click', () => {
-            let computedDisplay = window.getComputedStyle(venster).display; // Get computed style
-
-            if (computedDisplay === 'none') {
+            if (statusVenster === 'none') {
+                statusVenster = 'open' 
                 venster.style.display = 'block';
                 openClose.innerHTML = '<u>CLOSE</u>';
             } else {
+                statusVenster = 'none' 
                 venster.style.display = 'none';
                 openClose.innerHTML = '<u>OPEN</u>';
             }
+            sessionStorage.setItem("statusvenster", statusVenster);
+            console.log(statusVenster)
         }); 
     });
 });
 
-
-
-// let all = document.querySelectorAll('g.coating')
-// let bottom = document.querySelector('g#bottom');
-// let middle = document.querySelector('g#middle');
-// let tops = document.querySelectorAll('g.top');
-// let topcoatings = document.querySelectorAll('g.top g.coating');
-// let titels = document.querySelectorAll('.balk div')
-// let vensters = document.querySelectorAll('#venster div')
-// let welkom = document.querySelectorAll('.welkom');
-// let infos = document.querySelectorAll('.info');
-// let fotos = document.querySelectorAll('.fotos');
-// let brieven = document.querySelectorAll('.brieven');
-
-
-// function joaat(ying, yang) {
-//     ying.addEventListener('click', (e) => {
-//         let coating = ying.querySelector('g.coating');
-//         if (coating.classList.contains('hide')) {
-//             coating.classList.remove('hide'); 
-//             titels.forEach(titel => {
-//                 titel.classList.remove('actief')
-//             });
-//             vensters.forEach(venster => {
-//                 venster.classList.remove('actief')
-//             });
-//             welkom.forEach(w => {
-//                 w.classList.add('actief') 
-//             });
-//         } else {
-//             all.forEach(al => {
-//                 al.classList.remove('hide');
-//             });
-//             coating.classList.add('hide');
-//             titels.forEach(titel => {
-//                 titel.classList.remove('actief')
-//             });
-//             vensters.forEach(venster => {
-//                 venster.classList.remove('actief')
-//             });
-//             yang.forEach(y => {
-//                 y.classList.add('actief') 
-//             });
-//         }
-//     })
-// }
-
-// joaat(bottom, brieven)
-// joaat(middle, fotos)
-
-// tops.forEach(top => {
-
-//     top.addEventListener('click', (e)=> {
-//         let status
-//         topcoatings.forEach(coating => {
-//             if (coating.classList.contains('hide')) {
-//                 status = 'hidden';
-//             } else {
-//                 status = 'seen'
-//             }
-//         });
-//         if (status === 'hidden') {
-//             topcoatings.forEach(coating => {
-//                 coating.classList.remove('hide');  
-//             });
-//             titels.forEach(titel => {
-//                 titel.classList.remove('actief')
-//             });
-//             vensters.forEach(venster => {
-//                 venster.classList.remove('actief')
-//             });
-//             welkom.forEach(w => {
-//                 w.classList.add('actief') 
-//             });
-//         } else {
-//             all.forEach(al => {
-//                 al.classList.remove('hide');
-//             });
-//             topcoatings.forEach(coating => {
-//                 coating.classList.add('hide');  
-//             });
-//             titels.forEach(titel => {
-//                 titel.classList.remove('actief')
-//             });
-//             vensters.forEach(venster => {
-//                 venster.classList.remove('actief')
-//             });
-//             infos.forEach(y => {
-//                 y.classList.add('actief') 
-//             });
-//         }
-//     })
-// });
 
 
 let snelheid = 0.5;
@@ -308,253 +231,131 @@ let infosVenster = document.querySelector('#venster .info');
 let fotosVenster = document.querySelector('#venster .fotos');
 let brievenVenster = document.querySelector('#venster .brieven');
 
-let status = 'welkom'
-
-middle.addEventListener('click', (e) => {
-
-    if (fotos.classList.contains('actief')) {
-
-        fotos.classList.remove('actief');
-        fotosVenster.classList.remove('actief');
-        welkom.classList.add('actief');
-        welkomVenster.classList.add('actief');
-
-        coatings.forEach(coating => {
-            coating.classList.add('hide');
-        });
-
-        balken.forEach(balk => {
-           balk.style.backgroundColor = ""; 
-        });
-        venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
-
-    } else {
-        titels.forEach(titel => {
-            titel.classList.remove('actief');
-        });
-        vensters.forEach(venster => {
-            venster.classList.remove('actief');
-        });
-        fotos.classList.add('actief');
-        fotosVenster.classList.add('actief');
-
-        coatings.forEach(coating => {
-            coating.classList.remove('hide');
-        });
-
-        middleCoating.classList.add('hide');
-
-
-        balken.forEach(balk => {
-           balk.style.backgroundColor = ""; 
-        });
-
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "rgb(252, 192, 10)"; 
-        });
-        venster.style.backgroundColor = "hsla(45, 97.60%, 95%, 90%)";
-
-        venster.style.display = 'block';
-        openClose.innerHTML = '<u>CLOSE</u>';
-    }
-})
-
-bottom.addEventListener('click', (e) => {
-
-    if (brieven.classList.contains('actief')) {
-
-        brieven.classList.remove('actief');
-        brievenVenster.classList.remove('actief');
-        welkom.classList.add('actief');
-        vensters.forEach(venster => {
-            venster.classList.remove('actief');
-        });
-        welkomVenster.classList.add('actief');
-
-        coatings.forEach(coating => {
-            coating.classList.add('hide');
-        });
-
-        balken.forEach(balk => {
-           balk.style.backgroundColor = ""; 
-        });
-        venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
-
-    } else {
-        titels.forEach(titel => {
-            titel.classList.remove('actief');
-        });
-        vensters.forEach(venster => {
-            venster.classList.remove('actief');
-        });
-        brieven.classList.add('actief');
-        brievenVenster.classList.add('actief');
-
-        coatings.forEach(coating => {
-            coating.classList.remove('hide');
-        });
-
-        bottomCoating.classList.add('hide');
-
-        balken.forEach(balk => {
-           balk.style.backgroundColor = ""; 
-        });    
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "rgb(238, 116, 118)";
-        });
-    
-        venster.style.backgroundColor = "hsl(359, 78.20%, 95%, 90%)";
-
-        venster.style.display = 'block';
-        openClose.innerHTML = '<u>CLOSE</u>';
-    }
-})
-
 upperInfo.addEventListener('click', (e) => {
-
     if (infos.classList.contains('actief')) {
-
-        infos.classList.remove('actief');
-        infosVenster.classList.remove('actief');
-        vensters.forEach(venster => {
-            venster.classList.remove('actief');
-        });
-        welkom.classList.add('actief');
-        welkomVenster.classList.add('actief');
-
-        coatings.forEach(coating => {
-            coating.classList.add('hide');
-        });
-
-        balken.forEach(balk => {
-           balk.style.backgroundColor = ""; 
-        });
-        venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
-
+        statusMenu = 'welkom';
+        menu(true);
     } else {
-        titels.forEach(titel => {
-            titel.classList.remove('actief');
-        });
-        vensters.forEach(venster => {
-            venster.classList.remove('actief');
-        });
-        infos.classList.add('actief');
-        infosVenster.classList.add('actief');
-
-        coatings.forEach(coating => {
-            coating.classList.remove('hide');
-        });
-
-        upperInfoCoating.classList.add('hide');
-        upperCoating.classList.add('hide');
-
-        balken.forEach(balk => {
-           balk.style.backgroundColor = ""; 
-        
-        balken.forEach(balk => {
-            balk.style.backgroundColor = "rgb(179, 207, 238)";
-        });});
-        venster.style.backgroundColor = "hsla(212, 63.40%, 95%, 90%)";
-
-        venster.style.display = 'block';
-        openClose.innerHTML = '<u>CLOSE</u>';
+        statusMenu = 'info';
+        menu();
     }
 })
 
 upper.addEventListener('click', (e) => {
-
     if (infos.classList.contains('actief')) {
+        statusMenu = 'welkom';
+        menu(true);
+    } else {
+        statusMenu = 'info';
+        menu()
+    }
+})
 
-        infos.classList.remove('actief');
-        infosVenster.classList.remove('actief');
-        vensters.forEach(venster => {
-            venster.classList.remove('actief');
-        });
+middle.addEventListener('click', (e) => {
+    if (fotos.classList.contains('actief')) {
+        statusMenu = 'welkom';
+        menu(true);
+    } else {
+        statusMenu = 'polaroid'
+        menu();
+    }
+})
+
+bottom.addEventListener('click', (e) => {
+    if (brieven.classList.contains('actief')) {
+        statusMenu = 'welkom';
+        menu(true);
+    } else {
+        statusMenu = 'post';
+        menu();
+    }
+})
+
+function menu(neutroaal) {
+    titels.forEach(titel => {
+        titel.classList.remove('actief');
+    });
+    vensters.forEach(venster => {
+        venster.classList.remove('actief');
+    });
+    coatings.forEach(coating => {
+        coating.classList.remove('hide');
+    });
+    balken.forEach(balk => {
+        balk.style.backgroundColor = ""; 
+    });
+    console.log(statusMenu)
+
+    if (statusMenu === 'welkom') {
         welkom.classList.add('actief');
         welkomVenster.classList.add('actief');
-
         coatings.forEach(coating => {
             coating.classList.add('hide');
         });
-
         balken.forEach(balk => {
-           balk.style.backgroundColor = ""; 
+            balk.style.backgroundColor = ""; 
         });
         venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
-
-    } else {
-        titels.forEach(titel => {
-            titel.classList.remove('actief');
-        });
-        vensters.forEach(venster => {
-            venster.classList.remove('actief');
-        });
+    } else if (statusMenu === 'info') {
         infos.classList.add('actief');
         infosVenster.classList.add('actief');
-
-        coatings.forEach(coating => {
-            coating.classList.remove('hide');
-        });
-
         upperInfoCoating.classList.add('hide');
         upperCoating.classList.add('hide');
-
         balken.forEach(balk => {
             balk.style.backgroundColor = "rgb(179, 207, 238)"; 
         });
         venster.style.backgroundColor = "hsl(212, 63.40%, 95%, 90%)";
+    } else if (statusMenu === 'polaroid') {
+        fotos.classList.add('actief');
+        fotosVenster.classList.add('actief');
+        middleCoating.classList.add('hide');
+        balken.forEach(balk => {
+            balk.style.backgroundColor = "hsl(45, 97.60%, 51.40%)"; 
+        });
+        venster.style.backgroundColor = "hsla(45, 97.60%, 95%, 90%)";
+    } else if (statusMenu === 'post') {
+        brieven.classList.add('actief');
+        brievenVenster.classList.add('actief');
+        bottomCoating.classList.add('hide');
+        balken.forEach(balk => {
+            balk.style.backgroundColor = "hsl(359, 78.20%, 69.40%)";
+        });
+        venster.style.backgroundColor = "hsla(359, 78.20%, 95%, 90%)";
+    } 
 
-        venster.style.display = 'block';
-        openClose.innerHTML = '<u>CLOSE</u>';
+    if (!neutroaal) {
+        if (statusVenster === 'none') {
+            statusVenster = 'none' 
+            venster.style.display = 'none';
+            openClose.innerHTML = '<u>OPEN</u>';
+        } else {
+            statusVenster = 'open' 
+            venster.style.display = 'block';
+            openClose.innerHTML = '<u>CLOSE</u>';
+        }
+        sessionStorage.setItem("statusvenster", statusVenster);
+        console.log(statusVenster)
     }
-})
+
+    sessionStorage.setItem("statusmenu", statusMenu);
+}
+
 
 let booty = document.querySelector('svg');
+let bootah = document.querySelector('#tekening');
 
 booty.addEventListener('click', (e) => {
 
     if (e.target !== booty) return;
 
-    titels.forEach(venster => {
-        venster.classList.remove('actief');
-    });
-    vensters.forEach(venster => {
-        venster.classList.remove('actief');
-    });
-    welkom.classList.add('actief');
-    welkomVenster.classList.add('actief');
-
-    coatings.forEach(coating => {
-        coating.classList.add('hide');
-    });
-
-    balken.forEach(balk => {
-        balk.style.backgroundColor = ""; 
-    });
-    venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
+    statusMenu = 'welkom';
+    menu(true);
 })
-
-let bootah = document.querySelector('#tekening');
 
 bootah.addEventListener('click', (e) => {
 
     if (e.target !== bootah) return;
 
-    titels.forEach(venster => {
-        venster.classList.remove('actief');
-    });
-    vensters.forEach(venster => {
-        venster.classList.remove('actief');
-    });
-    welkom.classList.add('actief');
-    welkomVenster.classList.add('actief');
-
-    coatings.forEach(coating => {
-        coating.classList.add('hide');
-    });
-
-    balken.forEach(balk => {
-        balk.style.backgroundColor = ""; 
-    });
-    venster.style.backgroundColor = "rgb(255, 255, 255, 0.9)";
+    statusMenu = 'welkom';
+    menu(true);
 })
