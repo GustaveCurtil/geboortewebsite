@@ -5,6 +5,8 @@ html, * {
     margin: 0;
     box-sizing: border-box;
     overscroll-behavior: none;
+
+    overflow: none;
     
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -26,7 +28,6 @@ html, * {
 body {
     height: 100svh;
     width: 100vw;
-    overflow: none;
     padding: var(--ruimte-rand);
 }
 
@@ -123,7 +124,7 @@ g.hide {
 @media screen and (min-width: 500px) {
     #venster .fotos .polaroid {
         width: calc((100% - 4 * var(--ruimte-rand))/5);
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 }
 
@@ -159,6 +160,12 @@ div.beeld {
 .datum {
     text-align: center;
     font-size: 0.7rem;
+}
+
+@media screen and (min-width: 500px) {
+    .datum {
+        font-size: 1.2rem;
+    }
 }
 
 div.beeld img {
